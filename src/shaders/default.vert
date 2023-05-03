@@ -1,17 +1,17 @@
-#version 430 core
+#version 330 core
 
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aNormal;
-layout (location = 2) in vec2 aTexCoords;
-layout (location = 3) in vec3 aTangents;
-layout (location = 4) in vec3 aBitangents;
-layout (location = 5) in ivec4 boneIds; 
-layout (location = 6) in vec4 weights;
+ in vec3 aPos;
+ in vec3 aNormal;
+ in vec2 aTexCoords;
+ in vec3 aTangents;
+ in vec3 aBitangents;
+ in ivec4 boneIds; 
+ in vec4 weights;
 
-layout (location = 0) uniform mat4 M;
-layout (location = 1) uniform mat4 V;
-layout (location = 2) uniform mat4 P;
-layout (location = 4) uniform uint type;
+ uniform mat4 M;
+ uniform mat4 V;
+ uniform mat4 P;
+ uniform int type;
 
 out vec3 normal;
 out vec3 FragPos;

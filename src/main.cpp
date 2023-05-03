@@ -51,13 +51,14 @@ int main()
 	// Init GLFW
 	glfwInit();
 	// Define OpenGL version
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
 	// Define usage of Core
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// For AA
 	glfwWindowHint(GLFW_SAMPLES, 4);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 	// Create window with GLFW
 	GLFWwindow* window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Project", FULLSCREEN ? glfwGetPrimaryMonitor() : NULL, NULL);
@@ -108,18 +109,18 @@ int main()
 		glfwSwapInterval(0);
 
 
-	string daeFile = "../res/aj/aj.dae";
-	//string daeFile = "../res/DanceMoves2.FBX";
-	//string daeFile = "../res/vampire/dancing_vampire.dae";
-	//string daeFile = "../res/person/model.dae";
-	//string daeFile = "../res/maven/Maven.dae";
+	string daeFile = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/aj/aj.dae";
+	//string daeFile = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/DanceMoves2.FBX";
+	//string daeFile = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/vampire/dancing_vampire.dae";
+	//string daeFile = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/person/model.dae";
+	//string daeFile = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/maven/Maven.dae";
 
-	string animFile1 = "../res/aj/breathing_idle.dae";
-	string animFile2 = "../res/aj/walking.dae";
-	string animFile3 = "../res/aj/right_strafe_walking.dae";
-	string animFile4 = "../res/aj/left_strafe_walking.dae";
-	string animFile5 = "../res/aj/walking_backwards.dae";
-	string animFile6 = "../res/aj/jump.dae";
+	string animFile1 = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/aj/breathing_idle.dae";
+	string animFile2 = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/aj/walking.dae";
+	string animFile3 = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/aj/right_strafe_walking.dae";
+	string animFile4 = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/aj/left_strafe_walking.dae";
+	string animFile5 = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/aj/walking_backwards.dae";
+	string animFile6 = "/Users/armaangoel/Desktop/184/SkeletalAnimation/res/aj/jump.dae";
 
 	vector<TextureOverride> overrides = {
 		{ 0, DIFFUSE, "textures/Boy01_diffuse.jpg" },
@@ -186,8 +187,11 @@ int main()
 
 	Animation animations[] = { anim1, anim2, anim3, anim4, anim5, anim6 };
 
-	Shader shader = Shader("../src/shaders/default.vert", "../src/shaders/default.frag");
-	Shader depthShader = Shader("../src/shaders/depth.vert", "../src/shaders/depth.frag");
+    cout << "Loading shader" << endl;
+	Shader shader = Shader("/Users/armaangoel/Desktop/184/SkeletalAnimation/src/shaders/default.vert", "/Users/armaangoel/Desktop/184/SkeletalAnimation/src/shaders/default.frag");
+    
+    cout << "Loading depth shader" << endl;
+	Shader depthShader = Shader("/Users/armaangoel/Desktop/184/SkeletalAnimation/src/shaders/depth.vert", "/Users/armaangoel/Desktop/184/SkeletalAnimation/src/shaders/depth.frag");
 
 	// Render loop
 	float frameTime = 1.0f / FPS;
